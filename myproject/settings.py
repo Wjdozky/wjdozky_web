@@ -125,3 +125,6 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media"
+CSRF_TRUSTED_ORIGINS = [
+    'https://web-production-4261.up.railway.app/'
+]
