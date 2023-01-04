@@ -55,7 +55,7 @@ class cateArticleListView(ListView):
     template_name = "cate_article.html"
     def cate_article(request):
         myhome=home.objects.get(id=1)
-        mypost=blog_post.objects.all()
+        mypost=blog_post.objects.all()order_by('-id')
         paginator=Paginator(mypost,6)
         templatelist=['cate_article.html','home.html','master.html','about.html','article.html','cate_music.html']
         template=loader.select_template(templatelist)
@@ -69,7 +69,7 @@ class cateMusicListView(ListView):
     template_name = "cate_music.html"
     def cate_article(request):
         myhome=home.objects.get(id=1)
-        mypost=blog_post.objects.all()
+        mypost=blog_post.objects.all()order_by('-id')
         paginator=Paginator(mypost,6)
         templatelist=['cate_music.html','home.html','master.html','about.html','article.html','cate_article.html',]
         template=loader.select_template(templatelist)
