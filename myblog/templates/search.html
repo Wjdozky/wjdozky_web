@@ -1,0 +1,26 @@
+{% extends 'master.html' %} {% block content %} {% if object_list %}
+<div class="row gy-4 row-cols-1 row-cols-md-2 row-cols-xl-3 mt-5">
+  {% for post in object_list %}
+  <div class="col">
+    <div class="card">
+      <img
+        class="card-img-top w-100 d-block fit-cover"
+        style="height: 200px"
+        src="{{post.thumbnail.url}}"
+      />
+      <div class="card-body p-4">
+        <p class="text-primary card-text mb-0">{{post.category}}</p>
+        <a class="link-dark text-decoration-none" href="/article/{{ post.id }}">
+          <h4>{{post.title}}</h4>
+        </a>
+        <p>{{post.tanggal}}</p>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% else %}
+<h1 style="margin-bottom: 100vh; margin-top: 10vh; text-align: center">
+  Search Not found
+</h1>
+{% endif %} {% endblock content %}
