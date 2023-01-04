@@ -8,7 +8,7 @@
         </div>
       </div>
       <div class="row gy-4 row-cols-1 row-cols-md-2 row-cols-xl-3">
-        {% for post in page_obj %} {% if post.category == "music" %}
+        {% for post in mypost %} {% if post.category == "music" %}
         <div class="col">
           <div class="card">
             <img
@@ -31,54 +31,6 @@
         {% endif %} {% endfor %}
       </div>
     </div>
-  </div>
-  <div class="pagination mt-3">
-    <span class="step-links">
-      <span class="current">
-        Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
-      </span>
-      {% if page_obj.has_next %}
-      <div class="row mt-2" style="margin-bottom: 20px">
-        <div class="col-sm-2 d-flex">
-          <a
-            class="btn btn-primary"
-            type="button"
-            href="?page={{ page_obj.paginator.num_pages }}"
-            style="color: white; text-decoration: none; margin-right: 20px"
-            >last</a
-          >
-          <a
-            class="btn btn-primary"
-            type="button"
-            href="?page={{ page_obj.next_page_number }}"
-            style="color: white; text-decoration: none"
-            >Next</a
-          >
-        </div>
-      </div>
-
-      {% endif %} {% if page_obj.has_previous %}
-      <div class="row mt-2">
-        <div class="col-sm-2 d-flex">
-          <a
-            class="btn btn-primary"
-            type="button"
-            href="?page=1"
-            style="color: white; text-decoration: none; margin-right: 20px"
-            >first</a
-          >
-
-          <a
-            class="btn btn-primary"
-            type="button"
-            href="?page={{ page_obj.previous_page_number }}"
-            style="color: white; text-decoration: none"
-            >previous</a
-          >
-        </div>
-      </div>
-      {% endif %}
-    </span>
   </div>
 </div>
 {% endblock content %}

@@ -56,12 +56,12 @@ class cateArticleListView(ListView):
     def cate_article(request):
         myhome=home.objects.get(id=1)
         mypost=blog_post.objects.all().order_by('-id')
-        paginator=Paginator(mypost,6)
+        
         templatelist=['cate_article.html','home.html','master.html','about.html','article.html','cate_music.html']
         template=loader.select_template(templatelist)
-        page_number=request.GET.get('page')
-        page_obj = paginator.get_page(page_number)
-        context= {'myhome':myhome,'mypost':mypost,'date':yas,'page_obj': page_obj}
+       
+        
+        context= {'myhome':myhome,'mypost':mypost,'date':yas}
         return HttpResponse(template.render(context,request))
 
 class cateMusicListView(ListView):
@@ -70,12 +70,12 @@ class cateMusicListView(ListView):
     def cate_article(request):
         myhome=home.objects.get(id=1)
         mypost=blog_post.objects.all().order_by('-id')
-        paginator=Paginator(mypost,6)
+       
         templatelist=['cate_music.html','home.html','master.html','about.html','article.html','cate_article.html',]
         template=loader.select_template(templatelist)
         page_number=request.GET.get('page')
-        page_obj = paginator.get_page(page_number)
-        context= {'myhome':myhome,'mypost':mypost,'date':yas,'page_obj': page_obj}
+       
+        context= {'myhome':myhome,'mypost':mypost,'date':yas,}
         return HttpResponse(template.render(context,request))
 
 
